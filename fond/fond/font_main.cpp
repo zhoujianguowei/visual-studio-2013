@@ -20,7 +20,7 @@ int main()
 	cout << "max sub sequence:" << endl;
 	printArray(maxSumsRes);
 	cout << "dp max sub sum:" << dpGetMaxSubSum(subSums);
-	//recall();
+
 
 	return 0;
 }

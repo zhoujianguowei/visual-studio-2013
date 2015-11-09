@@ -323,7 +323,7 @@ class MinStack
 
 private:
 	list<int> nodeList;
-	list<int> orderedList;
+	list<int> minList;
 public:
 	void push(int x);
 

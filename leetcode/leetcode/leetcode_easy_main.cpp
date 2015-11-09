@@ -98,10 +98,14 @@ int main()
 	nums.push_back(arrayNums[i]);
 	vector<vector<int>> subset=subsets(nums);*/
 	MinStack minstack;
-	minstack.push(-2);
+	/*minstack.push(0);
+	minstack.push(1);
 	minstack.push(0);
-	minstack.push(-1);
-	cout << "getMin:" << minstack.getMin() << "  top:" << minstack.top() << "  pop" << "  getMin:" << minstack.getMin();
+	cout << "getMin:" << minstack.getMin() << "  pop";
+	minstack.pop();
+	cout << "  getMin:" << minstack.getMin();*/
+	minstack.push(-3);
+	cout << minstack.getMin();
 	return 0;
 }
 

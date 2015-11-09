@@ -92,11 +92,16 @@ int main()
 	merge(intervals);*/
 	/*int nums[] = {2,5,3,1,4 };
 	sortList(getListNode(nums, 5));*/
-	int arrayNums[] = { 3,2,4,1 };
+	/*int arrayNums[] = { 3,2,4,1 };
 	vector<int> nums;
 	for (int i = 0; i < 4; i++)
-		nums.push_back(arrayNums[i]);
-	vector<vector<int>> subset=subsets(nums);
+	nums.push_back(arrayNums[i]);
+	vector<vector<int>> subset=subsets(nums);*/
+	MinStack minstack;
+	minstack.push(-2);
+	minstack.push(0);
+	minstack.push(-1);
+	cout << "getMin:" << minstack.getMin() << "  top:" << minstack.top() << "  pop" << "  getMin:" << minstack.getMin();
 	return 0;
 }
 

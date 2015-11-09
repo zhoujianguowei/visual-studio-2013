@@ -92,10 +92,11 @@ int main()
 	merge(intervals);*/
 	/*int nums[] = {2,5,3,1,4 };
 	sortList(getListNode(nums, 5));*/
-	int arrayNums[] = { 1, 2, 3, 5, 7, 9, 12, 1, 3 };
+	int arrayNums[] = { 3,2,4,1 };
 	vector<int> nums;
-	for (int i = 0; i < 9; i++)
+	for (int i = 0; i < 4; i++)
 		nums.push_back(arrayNums[i]);
+	vector<vector<int>> subset=subsets(nums);
 	return 0;
 }
 

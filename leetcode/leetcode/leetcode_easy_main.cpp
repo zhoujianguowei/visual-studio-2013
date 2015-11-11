@@ -65,47 +65,17 @@ ListNode* deleteDuplicates(ListNode* head)
 
 int main()
 {
-	/*ListNode(*head) = new ListNode(3);
-	int sums[] = { 1, 2, 3 };
-	for (int i = 0; i < 3; i++)
-	{
-	head[i].val = i+1;
-	head[i].next = NULL;
-
-	}
-	head->next = &head[1];
-	head->next->next = &head[2];
-	reverseBetween(head, 2, 3);*/
-	/*clock_t start = clock();
-	cout << cout_prime(20000000) << "  time:";
-	clock_t finish = clock();
-	cout << (finish - start) / CLOCKS_PER_SEC << "Ãë";*/
-	/*vector<Interval> intervals;
-	Interval interval1;
-	interval1.start = 1;
-	interval1.end = 4;
-	Interval interval2;
-	interval2.start = 1;
-	interval2.end = 5;
-	intervals.push_back(interval1);
-	intervals.push_back(interval2);
-	merge(intervals);*/
-	/*int nums[] = {2,5,3,1,4 };
-	sortList(getListNode(nums, 5));*/
-	/*int arrayNums[] = { 3,2,4,1 };
-	vector<int> nums;
-	for (int i = 0; i < 4; i++)
-	nums.push_back(arrayNums[i]);
-	vector<vector<int>> subset=subsets(nums);*/
-	MinStack minstack;
-	/*minstack.push(0);
-	minstack.push(1);
-	minstack.push(0);
-	cout << "getMin:" << minstack.getMin() << "  pop";
-	minstack.pop();
-	cout << "  getMin:" << minstack.getMin();*/
-	minstack.push(-3);
-	cout << minstack.getMin();
+	int array1[] = { 1, 5, 6, 9, 10 };
+	int array2[] = { 2, 4, 5, 8 };
+	int array3[] = { 3, 7, 11, 40, 52, 99 };
+	ListNode *head1 = getListNode(array1,5);
+	ListNode *head2 = getListNode(array2, 4);
+	ListNode *head3 = getListNode(array3, 6);
+	vector<ListNode*> lists;
+	lists.push_back(head1);
+	lists.push_back(head2);
+	lists.push_back(head3);
+	mergeKLists(lists);
 	return 0;
 }
 

@@ -80,7 +80,7 @@ int main()
 			cin >> s >> e >> c;
 			graph[s][e] += c;
 		}
-		cout << getMaxFlow(n, graph, 1, m);
+		cout << getMaxFlow(m, graph, 1, m)<<endl;
 	}
 	/*graph[1][2] = 16;
 	graph[1][3] = 13;

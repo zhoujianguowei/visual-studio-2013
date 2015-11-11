@@ -66,7 +66,7 @@ int getMaxFlow(int v, int graph[MAXN][MAXN], int s, int t)
 
 	return max_flow;
 }
-int main()
+int main_drainage_ditches	()
 {
 	int n, m;
 	int graph[MAXN][MAXN];

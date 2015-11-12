@@ -284,3 +284,87 @@ ListNode *divide_binary_sort(ListNode *head)
 	ListNode *tail = getListNodeTail(head);
 	return NULL;
 }
+
+/*
+查看数组中是否有两个数在指定的索引方位内相同
+*/
+bool containsNearbyDuplicate(vector<int>& nums, int k)
+{
+	unordered_map<int, int> numsMap;
+	unordered_map<int, int>::iterator mapIterator;
+	for (int i = 0; i < nums.size(); i++)
+	{
+		mapIterator = numsMap.find(nums[i]);
+		if (mapIterator != numsMap.end())
+		{
+			if (k >= i - mapIterator->second)
+				return true;
+			else
+				numsMap.erase(nums[i]);
+		}
+		numsMap.insert(make_pair(nums[i], i));
+	}
+	return false;
+}
+int cout_prime(int n)
+{
+	if (n < 2)
+		return 0;
+	if (n < 4)
+		return n - 1;
+	vector<int> nums;
+	nums.resize(n + 1, 1);
+	int i, j;
+	for (i = 2; i <= n / 2; i++)
+		for (j = 2 * i; j <= n; j += i)
+		{
+			nums[j] = 0;
+		}
+	int count = 0;
+	for (int i = 2; i <= n; i++)
+		if (nums[i] == 1)
+		{
+			count++;
+			//cout << setw(4) << i;
+		}
+	return count;
+}
+/*
+删除排序数组中的重复元素
+*/
+ListNode* deleteDuplicates(ListNode* head)
+{
+	if (head == NULL || head->next == NULL)
+		return head;
+	ListNode* pre = head, *back = NULL, *adj = NULL;
+	bool isHeadFirst = false;
+	bool loop = false;
+	if (head == NULL || head->next == NULL)
+		return head;
+	ListNode* newHead = (ListNode*)(malloc(sizeof(ListNode)));
+	newHead->next = head;
+	head = newHead;
+	pre = head;
+	while (pre)
+	{
+		loop = false;
+		back = pre->next;
+		while (back&&back->next)
+		{
+			if (back->next->val != back->val)
+				break;
+
+			back = back->next;
+			loop = true;
+		}
+		if (loop)
+			pre->next = back->next;
+		else
+		{
+			pre->next = back;
+			pre = back;
+		}
+	}
+	head = head->next;
+	return head;
+}

@@ -10,6 +10,7 @@
 #include<map>
 #include<list>
 #include<time.h>
+#include<unordered_map>
 using namespace std;
 //template<class T> class DigitsOperand
 //{
@@ -335,3 +336,12 @@ public:
 
 	int getMin();
 };
+bool containsNearbyDuplicate(vector<int>& nums, int k);
+/*
+得到小于n的素数的个数
+*/
+int cout_prime(int n);
+/*
+删除排序数组中的重复元素
+*/
+ListNode* deleteDuplicates(ListNode* head);

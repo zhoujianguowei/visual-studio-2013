@@ -347,3 +347,49 @@ int cout_prime(int n);
 ListNode* deleteDuplicates(ListNode* head);
 ListNode* reverseList(ListNode *head);
 bool isPalindrome(ListNode* head);
+/*
+将integer的各个数字提取转换成为字符串
+*/
+string intParseStr(int num);
+/*
+Shortest Palindrome My Submissions Question
+Total Accepted: 12322 Total Submissions: 69813 Difficulty: Hard
+Given a string S, you are allowed to convert it to a palindrome by adding characters in front of it. Find and return the shortest palindrome you can find by performing this transformation.
+
+For example:
+
+Given "aacecaaa", return "aaacecaaa".
+
+Given "abcd", return "dcbabcd".
+
+Credits:
+Special thanks to @ifanchu for adding this problem and creating all test cases. Thanks to @Freezen for additional test cases.
+
+Subscribe to see which companies asked this question
+*/
+string shortestPalindrome(string s);
+/*
+Combination Sum III My Submissions Question
+Total Accepted: 17712 Total Submissions: 55946 Difficulty: Medium
+Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.
+
+Ensure that numbers within the set are sorted in ascending order.
+
+
+Example 1:
+
+Input: k = 3, n = 7
+
+Output:
+
+[[1,2,4]]
+
+Example 2:
+
+Input: k = 3, n = 9
+
+Output:
+
+[[1,2,6], [1,3,5], [2,3,4]]
+*/
+vector<vector<int>> combinationSum3(int k, int n);

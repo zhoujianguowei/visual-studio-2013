@@ -393,3 +393,10 @@ Output:
 [[1,2,6], [1,3,5], [2,3,4]]
 */
 vector<vector<int>> combinationSum3(int k, int n);
+/*
+连接两个有序链表
+*/
+ListNode *mergeTwoLists(ListNode *head1, ListNode *head2);
+ListNode *divide_binary_sort(ListNode *head);
+
+

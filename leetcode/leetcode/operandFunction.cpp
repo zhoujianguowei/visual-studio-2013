@@ -104,7 +104,7 @@ void nextPermutation(vector<int>& nums)
 {
 	if (nums.size() == 1)
 		return;
-	int minIndex = -1, i,size=nums.size();
+	int minIndex = -1, i, size = nums.size();
 	for (i = 0; i < nums.size() - 1; i++)
 		if (nums[i] < nums[i + 1] && i > minIndex)
 		{
@@ -112,12 +112,12 @@ void nextPermutation(vector<int>& nums)
 		}
 	if (minIndex == -1)
 	{
-		i =0;
-		while (i <size/ 2)
+		i = 0;
+		while (i < size / 2)
 		{
 			int temp = nums[i];
-			nums[i] = nums[size-1 - i];
-			nums[size-1 - i] = temp;
+			nums[i] = nums[size - 1 - i];
+			nums[size - 1 - i] = temp;
 			i++;
 		}
 	}
@@ -141,7 +141,7 @@ void nextPermutation(vector<int>& nums)
 
 bool isNotEqual(vector<int> a, vector<int> b)
 {
-	int i=0;
+	int i = 0;
 	if (a.size() != b.size())
 		return false;
 	while (i < a.size())
@@ -156,7 +156,7 @@ vector<vector<int>> permute(vector<int>& nums)
 {
 	vector<int> initNums = nums;
 	vector<vector<int>> res;
-	
+
 	do
 	{
 		nextPermutation(nums);
@@ -200,7 +200,7 @@ ListNode* reverseBetween(ListNode* head, int m, int n)
 	head = newHead->next;
 	return head;
 }
-ListNode *getListNode(int* nums,int n)
+ListNode *getListNode(int* nums, int n)
 {
 	vector<int> vecNums;
 	for (int i = 0; i < n; i++)
@@ -223,7 +223,7 @@ ListNode * getListNode(vector<int> nums)
 			tail = head;
 			continue;
 		}
-		tail->next = node; 
+		tail->next = node;
 		tail = node;
 	}
 	return head;
@@ -231,19 +231,19 @@ ListNode * getListNode(vector<int> nums)
 void quick_sort_pointer(ListNode* left, ListNode *right)
 {
 	int base = right->val;
-	
+
 	ListNode *i = left, *j = left;
 	ListNode *jPre = NULL;
-	if (left!=right)
+	if (left != right)
 	{
-		for (; i!=right; i=i->next)
-			if (i->val<base)
+		for (; i != right; i = i->next)
+			if (i->val < base)
 			{
 				int temp = j->val;
 				j->val = i->val;
 				i->val = temp;
 				jPre = j;
-				j=j->next;
+				j = j->next;
 			}
 		right->val = j->val;
 		j->val = base;
@@ -279,11 +279,30 @@ ListNode* sortList(ListNode* head)
 	return head;
 
 }
+/*
+采用二路归并方式对单链表进行排序
+*/
 ListNode *divide_binary_sort(ListNode *head)
 {
-	ListNode *tail = getListNodeTail(head);
-	return NULL;
+	if (head == NULL || head->next == NULL)
+		return head;
+	ListNode *pre = head;
+	ListNode *middle = pre, *cursor = pre;
+	ListNode *preMiddle = pre;
+	while (cursor&&cursor->next)
+	{
+		preMiddle = middle;
+		middle = middle->next;
+		cursor = cursor->next->next;
+	}
+	preMiddle->next = NULL;
+	head=divide_binary_sort(head);
+	middle=divide_binary_sort(middle);
+	return mergeTwoLists(head, middle);
 }
+
+
+
 
 /*
 查看数组中是否有两个数在指定的索引方位内相同
@@ -373,8 +392,8 @@ ListNode* deleteDuplicates(ListNode* head)
 */
 ListNode* reverseList(ListNode *head)
 {
-	if (head== NULL || head->next == NULL)
-		return head; 
+	if (head == NULL || head->next == NULL)
+		return head;
 	ListNode* pre = head, *cursor = pre->next, *post = cursor->next;
 	pre->next = NULL;
 	while (post)
@@ -403,7 +422,7 @@ bool isPalindrome(ListNode* head)
 		cursor = cursor->next->next;
 	}
 	if (cursor)
-	middle = middle->next;
+		middle = middle->next;
 	middle = reverseList(middle);
 	while (head&&middle)
 	{

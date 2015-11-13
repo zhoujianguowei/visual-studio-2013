@@ -15,7 +15,8 @@ int main()
 	lists.push_back(head2);
 	lists.push_back(head3);
 	mergeKLists(lists);*/
-	combinationSum3(3, 9);
+	int nums[] = { 1, 4, 3, 2, 7, 11, 58, 8, 4 };
+	ListNode *res=divide_binary_sort(getListNode(nums, 9));
 	return 0;
 }
 

@@ -7,34 +7,65 @@ vector<int> reverseVector(vector<int>& nums)
 		temp.push_back(nums[i]);
 	return temp;
 }
+vector<int> getVec(int  nums[], int n)
+{
+	vector<int> res;
+	for (int i = 0; i < n; i++)
+		res.push_back(nums[i]);
+	return res;
+}
 void quick_sort(vector<int> &array)
 {
 	quick_sort(array, 0, array.size() - 1);
 }
+void swap(int&a, int &b)
+{
+	int temp = a;
+	a = b;
+	b = temp;
+}
+/*
+使用随机快排，保证数据时间复杂度是nlog（n）
+*/
 void quick_sort(vector<int> &array, int left, int right)
 {
 
 	//int left=begin, right=end, low, high;
 	if (left < right)
 	{
-		int i = left - 1, j = left, key = array[right];
-		int temp;
-		for (; j < right; j++)
+		
+		int baseIndex = left + rand() % (right - left + 1);
+		int base = array[baseIndex];
+		int low = left, high = right;
+		/*
+		 需要特殊处理，不然跳不出来循环
+		*/
+		if (right - left == 1)
 		{
-			if (array[j] < key)
+			if (array[left]>array[right])
+				swap(array[left], array[right]);
+			return;
+		}
+		while (low < high)
+		{
+			/*
+			不要使用等号判断，否则容易生成low==high这种形式陷入死循环
+			*/
+			while (low<high&&array[low] < base)
+				low++;
+			while (low<high&&array[high]>base)
+				high--;
+			if (low < high)
 			{
-				i++;
-				temp = array[i];
-				array[i] = array[j];
-				array[j] = temp;
-
+				int temp = array[low];
+				array[low] = array[high];
+				array[high] = temp;
+				low++;
+				high--;
 			}
 		}
-		array[right] = array[i + 1];
-		array[i + 1] = key;
-		quick_sort(array, left, i);
-		quick_sort(array, i + 2, right);
-
+		quick_sort(array, left, high);
+		quick_sort(array, low, right);
 	}
 }
 
@@ -296,8 +327,8 @@ ListNode *divide_binary_sort(ListNode *head)
 		cursor = cursor->next->next;
 	}
 	preMiddle->next = NULL;
-	head=divide_binary_sort(head);
-	middle=divide_binary_sort(middle);
+	head = divide_binary_sort(head);
+	middle = divide_binary_sort(middle);
 	return mergeTwoLists(head, middle);
 }
 

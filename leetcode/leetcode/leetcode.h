@@ -398,5 +398,26 @@ vector<vector<int>> combinationSum3(int k, int n);
 */
 ListNode *mergeTwoLists(ListNode *head1, ListNode *head2);
 ListNode *divide_binary_sort(ListNode *head);
+/*
 
+Sort Colors
+My Submissions
+Question
+
+Total Accepted: 75265 Total Submissions: 226291 Difficulty: Medium
+
+
+
+
+
+Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+
+Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
+
+Note:
+You are not suppose to use the library's sort function for this problem
+
+*/
+void sortColors(vector<int>& nums);
+vector<int> getVec(int  nums[], int n);
 

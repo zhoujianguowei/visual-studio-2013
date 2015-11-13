@@ -15,8 +15,8 @@ int main()
 	lists.push_back(head2);
 	lists.push_back(head3);
 	mergeKLists(lists);*/
-	int nums[] = { 1, 4, 3, 2, 7, 11, 58, 8, 4 };
-	ListNode *res=divide_binary_sort(getListNode(nums, 9));
+	int nums[] = { 0, 2,1};
+	quick_sort(getVec(nums, 3));
 	return 0;
 }
 

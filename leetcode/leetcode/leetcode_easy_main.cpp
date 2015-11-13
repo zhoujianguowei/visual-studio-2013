@@ -15,8 +15,7 @@ int main()
 	lists.push_back(head2);
 	lists.push_back(head3);
 	mergeKLists(lists);*/
-	int nums[] = { 1,4,-1,-1 ,4,1};
-	cout << isPalindrome(getListNode(nums, 6));
+	combinationSum3(3, 9);
 	return 0;
 }
 

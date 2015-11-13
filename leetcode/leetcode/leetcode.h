@@ -345,3 +345,5 @@ int cout_prime(int n);
 删除排序数组中的重复元素
 */
 ListNode* deleteDuplicates(ListNode* head);
+ListNode* reverseList(ListNode *head);
+bool isPalindrome(ListNode* head);

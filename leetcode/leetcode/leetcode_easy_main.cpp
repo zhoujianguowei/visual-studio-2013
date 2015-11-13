@@ -15,11 +15,8 @@ int main()
 	lists.push_back(head2);
 	lists.push_back(head3);
 	mergeKLists(lists);*/
-	int nums[] = { 1, 3, 2, 3, 7, 12, 5, 3, 1, 3 };
-	vector<int> vec;
-	for (int i = 0; i < 10; i++)
-		vec.push_back(nums[i]);
-	cout << containsNearbyDuplicate(vec, 1);
+	int nums[] = { 1,4,-1,-1 ,4,1};
+	cout << isPalindrome(getListNode(nums, 6));
 	return 0;
 }
 

@@ -368,3 +368,49 @@ ListNode* deleteDuplicates(ListNode* head)
 	head = head->next;
 	return head;
 }
+/*
+反转链表
+*/
+ListNode* reverseList(ListNode *head)
+{
+	if (head== NULL || head->next == NULL)
+		return head; 
+	ListNode* pre = head, *cursor = pre->next, *post = cursor->next;
+	pre->next = NULL;
+	while (post)
+	{
+		cursor->next = pre;
+		pre = cursor;
+		cursor = post;
+		post = post->next;
+	}
+	cursor->next = pre;
+	pre = cursor;
+	return pre;
+}
+
+/*
+是否为回文串
+*/
+bool isPalindrome(ListNode* head)
+{
+	if (head == NULL)
+		return true;
+	ListNode *cursor = head, *middle = head;
+	while (cursor&&cursor->next)
+	{
+		middle = middle->next;
+		cursor = cursor->next->next;
+	}
+	if (cursor)
+	middle = middle->next;
+	middle = reverseList(middle);
+	while (head&&middle)
+	{
+		if (head->val != middle->val)
+			return false;
+		head = head->next;
+		middle = middle->next;
+	}
+	return true;
+}

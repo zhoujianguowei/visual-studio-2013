@@ -15,8 +15,8 @@ int main()
 	lists.push_back(head2);
 	lists.push_back(head3);
 	mergeKLists(lists);*/
-	int nums[] = { 0, 2,1};
-	quick_sort(getVec(nums, 3));
+	int nums[] = {-5,1000 };
+	cout<<"value"<<firstMissingPositive(getVec(nums, 2));
 	return 0;
 }
 

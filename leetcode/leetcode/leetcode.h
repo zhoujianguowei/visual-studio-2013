@@ -433,4 +433,5 @@ Your algorithm should run in O(n) time and uses constant space
 int firstMissingPositive(vector<int>& nums);
 int singleNumber(vector<int>& nums);
 int search(vector<int>& nums, int target);
+int nthUglyNumber(int n);
 

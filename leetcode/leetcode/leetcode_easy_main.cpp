@@ -14,9 +14,7 @@ int main()
 	lists.push_back(head2);
 	lists.push_back(head3);
 	mergeKLists(lists);*/
-	int nums[] = {3,1 };
-	cout << search(getVec(nums, 2),1);
-   
+	cout << nthUglyNumber(10);
 	return 0;
 }
 

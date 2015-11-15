@@ -431,3 +431,6 @@ and [3,4,-1,1] return 2.
 Your algorithm should run in O(n) time and uses constant space
 */
 int firstMissingPositive(vector<int>& nums);
+int singleNumber(vector<int>& nums);
+int search(vector<int>& nums, int target);
+

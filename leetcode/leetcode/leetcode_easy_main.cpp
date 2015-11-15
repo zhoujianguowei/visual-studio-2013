@@ -1,7 +1,6 @@
 #include"leetcode.h"
 
 
-
 int main()
 {
 	/*int array1[] = { 1, 5, 6, 9, 10 };
@@ -15,8 +14,9 @@ int main()
 	lists.push_back(head2);
 	lists.push_back(head3);
 	mergeKLists(lists);*/
-	int nums[] = {-5,1000 };
-	cout<<"value"<<firstMissingPositive(getVec(nums, 2));
+	int nums[] = {3,1 };
+	cout << search(getVec(nums, 2),1);
+   
 	return 0;
 }
 

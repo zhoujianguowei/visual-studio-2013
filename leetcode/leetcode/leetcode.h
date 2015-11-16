@@ -434,4 +434,17 @@ int firstMissingPositive(vector<int>& nums);
 int singleNumber(vector<int>& nums);
 int search(vector<int>& nums, int target);
 int nthUglyNumber(int n);
+int numSquares(int n);
+/*
+path sum II
+*/
+struct TreeNode
+{
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) :val(x), left(NULL), right(NULL) {}
+};
+vector<vector<int>> pathSum(TreeNode* root, int sum);
+
 

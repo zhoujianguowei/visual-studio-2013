@@ -14,7 +14,6 @@ int main()
 	lists.push_back(head2);
 	lists.push_back(head3);
 	mergeKLists(lists);*/
-	cout << nthUglyNumber(10);
 	return 0;
 }
 

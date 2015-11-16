@@ -40,4 +40,5 @@ vector<vector<int>> pathSum(TreeNode* root, int sum)
 	vector<vector<int>> res;
 	vector<int> vec;
 	getPathSum(res, root, vec, sum);
+	return res;
 }

@@ -33,13 +33,13 @@ void quick_sort(vector<int> &array, int left, int right)
 	//int left=begin, right=end, low, high;
 	if (left < right)
 	{
-		
+
 		int baseIndex = left + rand() % (right - left + 1);
 		int base = array[baseIndex];
 		int low = left, high = right;
 		/*
 		 需要特殊处理，不然跳不出来循环
-		*/
+		 */
 		if (right - left == 1)
 		{
 			if (array[left]>array[right])
@@ -51,7 +51,7 @@ void quick_sort(vector<int> &array, int left, int right)
 			/*
 			不要使用等号判断，否则容易生成low==high这种形式陷入死循环
 			*/
-			while (low<high&&array[low] < base)
+			while (low < high&&array[low] < base)
 				low++;
 			while (low<high&&array[high]>base)
 				high--;
@@ -472,6 +472,8 @@ string intParseStr(int num)
 	int i, j = num;
 	bool isNegative = num < 0 ? true : false;
 	string s = isNegative ? "-" : "";
+	if (isNegative)
+		j = -num;
 	stack<char> numStack;
 	while (j)
 	{
@@ -486,3 +488,59 @@ string intParseStr(int num)
 	}
 	return s;
 }
+int strParseInt(string s)
+{
+	bool isNegative = false;
+	if (!s.substr(0, 1).compare("-"))
+	{
+		isNegative = true;
+		s = s.substr(1);
+	}
+	int parseInt = 0;
+	for (int i = 0; i < s.length(); i++)
+	{
+		parseInt = parseInt*10 + (s.at(i) - '0');
+	}
+	if (isNegative)
+		parseInt = -parseInt;
+	return parseInt;
+	
+
+
+}
+TreeNode* createTree(vector<string> nums)
+{
+	int i = 0, j;
+	vector<TreeNode*> treeNodes;
+	TreeNode* treeNode;
+	for (; i < nums.size(); i++)
+	{
+		if (!nums[i].compare("null"))
+		{
+			treeNode = NULL;
+			treeNodes.push_back(treeNode);
+			continue;
+		}
+		treeNode = (TreeNode*)(malloc(sizeof(TreeNode)));
+		treeNode->val = strParseInt(nums[i]);
+		treeNode->left = NULL;
+		treeNode->right = NULL;
+		treeNodes.push_back(treeNode);
+	}
+	for (i = 0; i <nums.size()/2; i++)
+	{
+		j = 2 * i + 1;
+		if (j < nums.size())
+			treeNodes[i]->left = treeNodes[j];
+		j++;
+		if (j < nums.size())
+			treeNodes[i]->right = treeNodes[j];
+	}
+	return treeNodes[0];
+}
+
+
+
+
+
+

@@ -7,5 +7,5 @@ For example, given n = 12, return 3 because 12 = 4 + 4 + 4; given n = 13, return
 int numSquares(int n)
 {
 	
-	
+	return 0;
 }

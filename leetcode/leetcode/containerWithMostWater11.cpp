@@ -1,8 +1,5 @@
 #include"leetcode.h"
-int min(int x, int y)
-{
-	return x < y ? x : y;
-}
+
 int maxArea(vector<int>& height)
 {
 	int left = 0,  right = height.size() - 1;

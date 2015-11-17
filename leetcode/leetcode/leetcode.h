@@ -23,6 +23,7 @@ using namespace std;
 //	vector<T> array;
 //
 //};
+int min(int x, int y);
 void quick_sort(vector<int>&);
 void quick_sort(vector<int>&, int, int);
 vector<int> reverseVector(vector<int>&);
@@ -463,5 +464,7 @@ All root-to-leaf paths are:
 int strParseInt(string s);
 vector<string> binaryTreePaths(TreeNode* root);
 TreeNode* createTree(vector<string> nums);
+int numSquares(int n);	
+
 
 

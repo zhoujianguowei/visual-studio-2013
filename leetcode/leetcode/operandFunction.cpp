@@ -1,5 +1,9 @@
 #include"leetcode.h"
 //int partition(vector<T>, int, int);
+int min(int x, int y)
+{
+	return x < y ? x : y;
+}
 vector<int> reverseVector(vector<int>& nums)
 {
 	vector<int> temp;

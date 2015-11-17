@@ -14,7 +14,7 @@ int main()
 	lists.push_back(head2);
 	lists.push_back(head3);
 	mergeKLists(lists);*/
-	vector<string> treeValues;
+	/*vector<string> treeValues;
 	treeValues.push_back("37");
 	treeValues.push_back("-34");
 	treeValues.push_back("-48");
@@ -23,7 +23,8 @@ int main()
 	TreeNode* root = createTree(treeValues);
 	vector<string> res = binaryTreePaths(root);
 	for (int i = 0; i < res.size(); i++)
-		cout << res[i] << "  ";
+		cout << res[i] << "  ";*/
+	cout << numSquares(128);
 	return 0;
 }
 

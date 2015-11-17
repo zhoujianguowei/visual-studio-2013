@@ -23,7 +23,14 @@ using namespace std;
 //	vector<T> array;
 //
 //};
-int min(int x, int y);
+template<class T>T  min(T x, T y)
+{
+	return x < y ? x : y;
+}
+template<class T> T max(T x, T y)
+{
+	return x > y ? x : y;
+}
 void quick_sort(vector<int>&);
 void quick_sort(vector<int>&, int, int);
 vector<int> reverseVector(vector<int>&);
@@ -465,6 +472,7 @@ int strParseInt(string s);
 vector<string> binaryTreePaths(TreeNode* root);
 TreeNode* createTree(vector<string> nums);
 int numSquares(int n);	
+int numDistinct(string s, string t);
 
 
 

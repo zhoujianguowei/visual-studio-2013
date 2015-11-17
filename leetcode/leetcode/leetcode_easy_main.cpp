@@ -24,7 +24,6 @@ int main()
 	vector<string> res = binaryTreePaths(root);
 	for (int i = 0; i < res.size(); i++)
 		cout << res[i] << "  ";*/
-	cout << numSquares(128);
 	return 0;
 }
 

@@ -24,6 +24,10 @@ int main()
 	vector<string> res = binaryTreePaths(root);
 	for (int i = 0; i < res.size(); i++)
 		cout << res[i] << "  ";*/
+	char *s = "";
+	char *p = "..*";
+	//cout << isMatch("bbbaabbccbcccccccac", "bba*.*.*c*.*c*b*a");
+	cout << isPointerMatch(s, p);
 	return 0;
 }
 

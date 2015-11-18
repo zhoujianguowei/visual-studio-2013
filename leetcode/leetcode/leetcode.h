@@ -473,6 +473,8 @@ vector<string> binaryTreePaths(TreeNode* root);
 TreeNode* createTree(vector<string> nums);
 int numSquares(int n);	
 int numDistinct(string s, string t);
+bool isMatch(string s, string p);
+bool isPointerMatch(char *s, char *p);
 
 
 

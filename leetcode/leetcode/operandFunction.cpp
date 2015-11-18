@@ -540,6 +540,70 @@ TreeNode* createTree(vector<string> nums)
 	}
 	return treeNodes[0];
 }
+int removeDuplicates(int* nums, int numsSize)
+{
+	int count = 0;
+	int duplicate = 0;
+	int i = 0;
+	int newArray[2000];
+	for (; i<numsSize; i++)
+	{
+		if (i>0 && nums[i] == nums[i - 1])
+		{
+			if (duplicate)
+			{
+				duplicate = 1;
+				continue;
+			}
+			else
+			{
+				duplicate = 1;
+				newArray[count] = nums[i];
+				count++;
+				continue;
+			}
+		}
+		duplicate = 0;
+		newArray[count] = nums[i];
+		count++;
+	}
+	for (i = 0; i<count; i++)
+		nums[i] = newArray[i];
+	return count;
+}
+char* longestCommonPrefix(char** strs, int strsSize)
+{
+	int i = 0, j = 0, minLength = 0x03ffffff;
+	if (strs == NULL || *strs == NULL)
+		return "";
+	for (; i < strsSize; i++)
+		minLength = min(minLength, (int)strlen(*(strs + i)));
+	for (i = 0; i < minLength; i++)
+	{
+		for (j = 0; j < strsSize - 1; j++)
+			if (*(*(strs + j) + i) == *(*(strs + j + 1) + i))
+				continue;
+			else
+				break;
+		if (j != strsSize - 1)
+			break;
+	}
+	//   i--;
+	*(*strs + i) = '\0';
+	return  *strs;
+}
+char * getTail(char *head)
+{
+	if (*head == '\0' || *(head + 1) == '\0')
+		return head;
+	char *tail = NULL;;
+	while (*head)
+	{
+		tail = head;
+		head++;
+	}
+	return tail;
+}
 
 
 

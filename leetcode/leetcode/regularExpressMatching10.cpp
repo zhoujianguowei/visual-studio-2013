@@ -45,7 +45,7 @@ bool isPointerMatch(char *s, char *p)
 		}
 		return isPointerMatch(s, p + 2);
 	}
-	if (*p == '.'&&*s|| *s == *p)
+	if (*p == '.'&&*s|| *s == *p)  // "..*"ºÍ""¿Õ´®Çé¿ö
 		return isPointerMatch(s + 1, p + 1);
 	return false;
 }

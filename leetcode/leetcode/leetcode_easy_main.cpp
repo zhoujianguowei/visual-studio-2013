@@ -1,6 +1,4 @@
 #include"leetcode.h"
-
-
 int main()
 {
 	/*int array1[] = { 1, 5, 6, 9, 10 };
@@ -23,11 +21,9 @@ int main()
 	TreeNode* root = createTree(treeValues);
 	vector<string> res = binaryTreePaths(root);
 	for (int i = 0; i < res.size(); i++)
-		cout << res[i] << "  ";*/
-	char *s = "";
-	char *p = "..*";
-	//cout << isMatch("bbbaabbccbcccccccac", "bba*.*.*c*.*c*b*a");
-	cout << isPointerMatch(s, p);
+	cout << res[i] << "  ";*/
+	int nums[] = { 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 5 };
+	removeDuplicates(nums, 14);
 	return 0;
 }
 

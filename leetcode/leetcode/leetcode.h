@@ -475,6 +475,14 @@ int numSquares(int n);
 int numDistinct(string s, string t);
 bool isMatch(string s, string p);
 bool isPointerMatch(char *s, char *p);
+/*
+remove a sorted array in which the number of elements is no more than two
+*/
+int removeDuplicates(int* nums, int numsSize);
+char* longestCommonPrefix(char** strs, int strsSize);
+char * getTail(char *head);
+
+
 
 
 

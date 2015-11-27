@@ -481,6 +481,13 @@ remove a sorted array in which the number of elements is no more than two
 int removeDuplicates(int* nums, int numsSize);
 char* longestCommonPrefix(char** strs, int strsSize);
 char * getTail(char *head);
+int getDistinctCombination(int n, int k);
+int getDistinctPermutation(int n, int k);
+int countDigitOne(int n);
+int strStr(char* haystack, char* needle);
+int threeSumClosest(int* nums, int numsSize, int target);
+
+
 
 
 

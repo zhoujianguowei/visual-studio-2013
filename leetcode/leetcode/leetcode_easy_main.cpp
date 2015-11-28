@@ -2,9 +2,9 @@
 
 int main()
 {
-	int sums[] = { -3, 2, 5, 1, 93, 12, -9, -8, -11, -23, 35, 88, 68 };
-	cout<<threeSumClosest(getVec(sums,13), 93);
-	
+	int nums[] = { 5, 7, 7, 8, 8, 10 };
+	vector<int> res = searchRange(getVec(nums, 6), 8);
+	cout << "begin:" << res[0] << " end:" << res[1];
 	return 0;
 }
 

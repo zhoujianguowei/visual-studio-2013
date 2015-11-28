@@ -486,6 +486,8 @@ int getDistinctPermutation(int n, int k);
 int countDigitOne(int n);
 int strStr(char* haystack, char* needle);
 int threeSumClosest(vector<int>& nums, int target);
+vector<int> searchRange(vector<int>& nums, int target);
+
 
 
 

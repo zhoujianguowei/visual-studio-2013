@@ -487,6 +487,7 @@ int countDigitOne(int n);
 int strStr(char* haystack, char* needle);
 int threeSumClosest(vector<int>& nums, int target);
 vector<int> searchRange(vector<int>& nums, int target);
+vector<int> singleNumberIII(vector<int>& nums);
 
 
 

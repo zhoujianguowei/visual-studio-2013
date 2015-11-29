@@ -9,7 +9,8 @@ vector<int> reverseVector(vector<int>& nums)
 		temp.push_back(nums[i]);
 	return temp;
 }
-vector<int> getVec(int  nums[], int n)
+
+vector<int> getVec(int nums[], int n)
 {
 	vector<int> res;
 	for (int i = 0; i < n; i++)
@@ -474,20 +475,33 @@ string intParseStr(int num)
 	int i, j = num;
 	bool isNegative = num < 0 ? true : false;
 	string s = isNegative ? "-" : "";
+	bool isMaxPos = false;
+	if (num == -(int)pow(2, 31))
+	{
+		num++;
+		isMaxPos = true;
+	}
 	if (isNegative)
 		j = -num;
 	stack<char> numStack;
+	int numCount = 0;
 	while (j)
 	{
 		i = j % 10;
 		j /= 10;
 		numStack.push(i);
+		numCount++;
 	}
 	while (!numStack.empty())
 	{
-		s.append(1, numStack.top() + '0');
+		if (numCount == 1 && isMaxPos)
+			s.append(1, numStack.top() + '1');
+		else
+			s.append(1, numStack.top() + '0');
+		numCount--;
 		numStack.pop();
 	}
+
 	return s;
 }
 int strParseInt(string s)
@@ -501,12 +515,12 @@ int strParseInt(string s)
 	int parseInt = 0;
 	for (int i = 0; i < s.length(); i++)
 	{
-		parseInt = parseInt*10 + (s.at(i) - '0');
+		parseInt = parseInt * 10 + (s.at(i) - '0');
 	}
 	if (isNegative)
 		parseInt = -parseInt;
 	return parseInt;
-	
+
 
 
 }
@@ -529,7 +543,7 @@ TreeNode* createTree(vector<string> nums)
 		treeNode->right = NULL;
 		treeNodes.push_back(treeNode);
 	}
-	for (i = 0; i <nums.size()/2; i++)
+	for (i = 0; i < nums.size() / 2; i++)
 	{
 		j = 2 * i + 1;
 		if (j < nums.size())
@@ -546,9 +560,9 @@ int removeDuplicates(int* nums, int numsSize)
 	int duplicate = 0;
 	int i = 0;
 	int newArray[2000];
-	for (; i<numsSize; i++)
+	for (; i < numsSize; i++)
 	{
-		if (i>0 && nums[i] == nums[i - 1])
+		if (i > 0 && nums[i] == nums[i - 1])
 		{
 			if (duplicate)
 			{
@@ -567,7 +581,7 @@ int removeDuplicates(int* nums, int numsSize)
 		newArray[count] = nums[i];
 		count++;
 	}
-	for (i = 0; i<count; i++)
+	for (i = 0; i < count; i++)
 		nums[i] = newArray[i];
 	return count;
 }
@@ -607,7 +621,7 @@ char * getTail(char *head)
 /*
 非重复整数组合数目
 */
-int getDistinctCombination(int n,int k)
+int getDistinctCombination(int n, int k)
 {
 	if (n == 0 || n == 1)
 		return 1;
@@ -622,12 +636,12 @@ int getDistinctCombination(int n,int k)
 }
 int getDistinctPermutation(int n, int k)
 {
-	int i = 1,facK=1;
+	int i = 1, facK = 1;
 	for (; i <= k; i++)
 		facK *= i;
 	return getDistinctCombination(n, k)*facK;
 
-	
+
 }
 
 

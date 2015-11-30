@@ -1,4 +1,28 @@
 #include"leetcode.h"
+/*
+this is another version,which is a approach to duplicate problem
+if (left == right)
+min = min > nums[left] ? nums[left] : min;
+if (left > right)
+return;
+int middle = left + (right - left) / 2;
+if (nums[left] >=nums[right])
+{
+if(nums[middle]==nums[left]&&nums[middle]==nums[right])
+min=min>nums[left]?nums[left]:min;
+if(nums[middle]>nums[left])
+min=min>nums[left]?nums[left]:min;
+else
+binary_get_min(nums,min,left+1,middle);
+if(nums[middle]<nums[right])
+min=min>nums[right]?nums[right]:min;
+else
+binary_get_min(nums,min,middle+1,right);
+
+}
+min = min > nums[left] ? nums[left] : min;
+
+*/
 void binary_get_min(vector<int> nums,int &min, int left, int right)
 {
 	if (left == right)

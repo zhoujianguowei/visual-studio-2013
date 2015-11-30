@@ -488,6 +488,9 @@ int strStr(char* haystack, char* needle);
 int threeSumClosest(vector<int>& nums, int target);
 vector<int> searchRange(vector<int>& nums, int target);
 vector<int> singleNumberIII(vector<int>& nums);
+int binarySearch(vector<int> nums, int left, int right, int target);
+int findMin(vector<int>& nums);
+
 
 
 

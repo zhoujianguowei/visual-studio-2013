@@ -1,51 +1,52 @@
 #include"leetcode.h"
-
+ ListNode *mergeTwoLists(ListNode *head1, ListNode *head2)
+{
+	if (head1 == NULL)
+		return head2;
+	if (head2 == NULL)
+		return head1;
+	ListNode * resHead = (ListNode*)(malloc(sizeof(ListNode)));
+	ListNode *temp = resHead;
+	temp->next = NULL;
+	ListNode* temp1 = head1, *temp2 = head2;
+	while (temp1&&temp2)
+	{
+		if (temp1->val < temp2->val)
+		{
+			temp->next = temp1;
+			temp1 = temp1->next;
+		}
+		else
+		{
+			temp->next = temp2;
+			temp2 = temp2->next;
+		}
+		temp = temp->next;
+	}
+	if (temp1)
+		while (temp1)
+		{
+			temp->next = temp1;
+			temp1 = temp1->next;
+			temp = temp->next;
+		}
+	else if (temp2)
+		while (temp2)
+		{
+			temp->next = temp2;
+			temp2 = temp2->next;
+			temp = temp->next;
+		}
+	return resHead->next;
+}
 ListNode* mergeKLists(vector<ListNode*>& lists)
 {
-	ListNode* head = (ListNode*)(malloc(sizeof(ListNode)));
-	head->next = NULL;
-	ListNode* p = head;
-	int overListCount = 0;
-	while (overListCount < lists.size())
+	//ListNode *mergeTwoLists(ListNode *head1, ListNode *head2);
+	ListNode *mergeTwoHead = NULL;
+	for (int i = 0; i < lists.size(); i++)
 	{
-		int minIndex = -1;
-		int min = -1;
-		bool changed = false;
-		overListCount = 0;
-		for (int i = 0; i < lists.size(); i++)
-		{
-			if (lists[i] == NULL)
-			{
-				overListCount++;
-				continue;
-			}
-			else
-			{
-				if (!changed)
-				{
-					min = lists[i]->val;
-					minIndex = i;
-					changed = true;
-					continue;
-				}
-			}
-			if (lists[i]->val < min)
-			{
-				min = lists[i]->val;
-				minIndex = i;
-			}
-		}
-		if (changed)
-		{
-			lists[minIndex] = lists[minIndex]->next;
-			ListNode *addNode = (ListNode*)(malloc(sizeof(ListNode)));
-			addNode->next = NULL;
-			addNode->val = min;
-			p->next = addNode;
-			p = addNode;
-
-		}
+		mergeTwoHead = mergeTwoLists(mergeTwoHead, lists[i]);
 	}
-	return head->next;
+	return	mergeTwoHead;
 
 }

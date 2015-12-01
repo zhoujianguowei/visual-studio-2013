@@ -10,6 +10,8 @@
 #include<map>
 #include<list>
 #include<time.h>
+#include<set>
+#include<unordered_map>
 using namespace std;
 //template<class T> class DigitsOperand
 //{
@@ -22,6 +24,14 @@ using namespace std;
 //	vector<T> array;
 //
 //};
+template<class T>T  min(T x, T y)
+{
+	return x < y ? x : y;
+}
+template<class T> T max(T x, T y)
+{
+	return x > y ? x : y;
+}
 void quick_sort(vector<int>&);
 void quick_sort(vector<int>&, int, int);
 vector<int> reverseVector(vector<int>&);
@@ -323,7 +333,7 @@ class MinStack
 
 private:
 	list<int> nodeList;
-	list<int> orderedList;
+	list<int> minList;
 public:
 	void push(int x);
 
@@ -335,3 +345,162 @@ public:
 
 	int getMin();
 };
+bool containsNearbyDuplicate(vector<int>& nums, int k);
+/*
+得到小于n的素数的个数
+*/
+int cout_prime(int n);
+/*
+删除排序数组中的重复元素
+*/
+ListNode* deleteDuplicates(ListNode* head);
+ListNode* reverseList(ListNode *head);
+bool isPalindrome(ListNode* head);
+/*
+将integer的各个数字提取转换成为字符串
+*/
+string intParseStr(int num);
+/*
+Shortest Palindrome My Submissions Question
+Total Accepted: 12322 Total Submissions: 69813 Difficulty: Hard
+Given a string S, you are allowed to convert it to a palindrome by adding characters in front of it. Find and return the shortest palindrome you can find by performing this transformation.
+
+For example:
+
+Given "aacecaaa", return "aaacecaaa".
+
+Given "abcd", return "dcbabcd".
+
+Credits:
+Special thanks to @ifanchu for adding this problem and creating all test cases. Thanks to @Freezen for additional test cases.
+
+Subscribe to see which companies asked this question
+*/
+string shortestPalindrome(string s);
+/*
+Combination Sum III My Submissions Question
+Total Accepted: 17712 Total Submissions: 55946 Difficulty: Medium
+Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.
+
+Ensure that numbers within the set are sorted in ascending order.
+
+
+Example 1:
+
+Input: k = 3, n = 7
+
+Output:
+
+[[1,2,4]]
+
+Example 2:
+
+Input: k = 3, n = 9
+
+Output:
+
+[[1,2,6], [1,3,5], [2,3,4]]
+*/
+vector<vector<int>> combinationSum3(int k, int n);
+/*
+连接两个有序链表
+*/
+ListNode *mergeTwoLists(ListNode *head1, ListNode *head2);
+ListNode *divide_binary_sort(ListNode *head);
+/*
+
+Sort Colors
+My Submissions
+Question
+
+Total Accepted: 75265 Total Submissions: 226291 Difficulty: Medium
+
+
+
+
+
+Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+
+Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
+
+Note:
+You are not suppose to use the library's sort function for this problem
+
+*/
+void sortColors(vector<int>& nums);
+vector<int> getVec(int  nums[], int n);
+
+/*
+Given an unsorted integer array, find the first missing positive integer.
+
+For example,
+Given [1,2,0] return 3,
+and [3,4,-1,1] return 2.
+
+Your algorithm should run in O(n) time and uses constant space
+*/
+int firstMissingPositive(vector<int>& nums);
+int singleNumber(vector<int>& nums);
+int search(vector<int>& nums, int target);
+int nthUglyNumber(int n);
+int numSquares(int n);
+/*
+path sum II
+*/
+struct TreeNode
+{
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) :val(x), left(NULL), right(NULL) {}
+};
+vector<vector<int>> pathSum(TreeNode* root, int sum);
+/*
+Given a binary tree, return all root-to-leaf paths.
+
+For example, given the following binary tree:
+
+1
+/   \
+2     3
+\
+5
+All root-to-leaf paths are:
+
+["1->2->5", "1->3"]
+*/
+int strParseInt(string s);
+vector<string> binaryTreePaths(TreeNode* root);
+TreeNode* createTree(vector<string> nums);
+int numSquares(int n);	
+int numDistinct(string s, string t);
+bool isMatch(string s, string p);
+bool isPointerMatch(char *s, char *p);
+/*
+remove a sorted array in which the number of elements is no more than two
+*/
+int removeDuplicates(int* nums, int numsSize);
+char* longestCommonPrefix(char** strs, int strsSize);
+char * getTail(char *head);
+int getDistinctCombination(int n, int k);
+int getDistinctPermutation(int n, int k);
+int countDigitOne(int n);
+int strStr(char* haystack, char* needle);
+int threeSumClosest(vector<int>& nums, int target);
+vector<int> searchRange(vector<int>& nums, int target);
+vector<int> singleNumberIII(vector<int>& nums);
+int binarySearch(vector<int> nums, int left, int right, int target);
+int findMin(vector<int>& nums);
+void reverseWords(string &s);
+TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q);
+
+
+
+
+
+
+
+
+
+
+

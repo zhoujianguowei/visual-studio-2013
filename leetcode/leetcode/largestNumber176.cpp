@@ -1,26 +1,4 @@
 #include"leetcode.h"
-string intParseStr(int num)
-{
-	//bool isNegative = num < 0 ? true : false;
-	if (num == 0)
-		return "0";
-	int i, j = num;
-	bool isNegative = num < 0 ? true : false;
-	string s=isNegative?"-":"";
-	stack<char> numStack;
-	while (j)
-	{
-		i = j % 10 ;
-		j /= 10;
-		numStack.push(i);
-	}
-	while (!numStack.empty())
-	{
-		s.append(1, numStack.top()+'0');
-		numStack.pop();
-	}
-	return s;
-}
 
 
 int largerIntCmp(int num1, int num2)

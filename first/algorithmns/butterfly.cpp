@@ -50,7 +50,7 @@ int main_butterfly()
 	int n, m;
 
 
-	while (scanf("%d %d\n", &n, &m) > 0)
+	while (scanf("%d %d", &n, &m) > 0)
 	{
 		bool ok = true;
 		init(n);

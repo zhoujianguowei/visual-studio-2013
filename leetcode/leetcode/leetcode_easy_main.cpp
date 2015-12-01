@@ -1,54 +1,37 @@
 #include"leetcode.h"
-#pragma warning(disable:4146)
-void reverseWords(string &s)
+TreeNode *p = NULL;
+void validBST(TreeNode *root, bool &flag)
 {
-	if (s.length() == 0)
+	if (root == NULL)
 		return;
-	string anotherS;
-	vector<string> strVec;
-	int i = 0;
-	while (i < s.length() && s.at(i) == ' ')
-		i++;
-	if (i == s.length())
+	validBST(root->left, flag);
+	if (p != NULL&&p->val >= root->val)
 	{
-		s = "";
+		flag = false;
 		return;
 	}
-	int length = 0;
-	int firstIndex = i;
-	for (; i < s.length(); i++)
-	{
-		if (s.at(i) == ' ')
-		{
-			anotherS.assign(s.substr(firstIndex, length));
-			strVec.push_back(anotherS);
-			while (i<s.length()&&s.at(i) == ' ')
-				i++;
-			firstIndex = i;
-			i--;
-			length = 0;
-		}
-		else
-			length++;
-	}
-	if (s.at(s.length() - 1) != ' ')
-	{
-		anotherS.assign(s.substr(firstIndex, length));
-	    strVec.push_back(anotherS);
-	}
-	s.assign("");
-	for (i = strVec.size() - 1; i >= 0; i--)
-		s.append(strVec[i] + " ");
-	s.erase(s.length()-1);
+	p = root;
+	validBST(root->right, flag);
+}
 
+bool isValidBST(TreeNode* root)
+{
+	bool flag = true;
+	validBST(root, flag);
+	return flag;
 
 }
 int main()
 {
-	int nums[] = { 6, 7, 0, 1, 2, 4, 5 };
-	string s = "1 ";
-	reverseWords(s);
-	cout << "after :\"" << s<<"\"";
+	//string strArray[] = { "10", "5", "15", "null", "null", "6","20" };
+	//string strArKray[] = { "3", "1","5","0","2","4","6","null","null","null","3" };
+	string strArray[] = { "1" };
+	int i = 0;
+	vector<string> strVec;
+	for (; i <1; i++)
+		strVec.push_back(strArray[i]);
+	TreeNode * root = createTree(strVec);
+	cout << isValidBST(root);
 	return 0;
 }
 

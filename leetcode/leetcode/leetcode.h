@@ -493,6 +493,7 @@ int binarySearch(vector<int> nums, int left, int right, int target);
 int findMin(vector<int>& nums);
 void reverseWords(string &s);
 TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q);
+int longestConsecutive(vector<int>& nums);
 
 
 

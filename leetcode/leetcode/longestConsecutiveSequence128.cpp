@@ -1,19 +1,4 @@
 #include"leetcode.h"
-vector<int> getMinMax(vector<int> &nums)
-{
-	int min = nums[0], max = nums[0];
-	for (int i = 1; i<nums.size(); i++)
-	{
-		if (nums[i]>max)
-			max = nums[i];
-		if (nums[i]<min)
-			min = nums[i];
-	}
-	vector<int> res;
-	res.push_back(min);
-	res.push_back(max);
-	return res;
-}
 /*
 Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
 
@@ -27,27 +12,36 @@ int longestConsecutive(vector<int>& nums)
 {
 	if (nums.size() == 0)
 		return 0;
-	vector<int> res = getMinMax(nums);
-	int maxLength = res.back() - res.front() + 1;
-	bool *filters = new bool[maxLength];
-	memset(filters, false, maxLength*sizeof(bool));
+	int maxConsLength=0;
+	int tempMax = 0;
 	int i = 0;
-	for (; i<nums.size(); i++)
-		filters[nums[i] - res.front()] = true;
-	int maxConsLength = 0;
-	int tempMaxLength = 0;
-	for (i = 0; i<maxLength; i++)
+	unordered_set<int> unSet;
+	for (; i < nums.size(); i++)
+		unSet.insert(nums[i]);
+	while (!unSet.empty())
 	{
-		if (filters[i] == true)
-			tempMaxLength++;
-		else
+		tempMax = 0;
+		int value = *unSet.begin();
+		tempMax++;
+		int temp = value; 
+		value++;
+		while (unSet.find(value) != unSet.end())
 		{
-			maxConsLength = maxConsLength<tempMaxLength ? tempMaxLength : maxConsLength;
-			tempMaxLength = 0;
+			unSet.erase(value);
+			tempMax++;
+			value++;
 		}
+		value = temp - 1;
+		while (unSet.find(value) != unSet.end())
+		{
+			unSet.erase(value);
+			tempMax++;
+			value--;
+		}
+		unSet.erase(temp);
+		maxConsLength = maxConsLength < tempMax ? tempMax : maxConsLength;
 	}
-	maxConsLength = maxConsLength<tempMaxLength ? tempMaxLength : maxConsLength;
-	delete[] filters;
 	return maxConsLength;
+
 
 }

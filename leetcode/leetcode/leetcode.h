@@ -495,6 +495,13 @@ int findMin(vector<int>& nums);
 void reverseWords(string &s);
 TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q);
 int longestConsecutive(vector<int>& nums);
+struct RandomListNode
+{
+	int label;
+	RandomListNode *next, *random;
+	RandomListNode(int x) :label(x), next(NULL), random(NULL) {}
+};
+RandomListNode *copyRandomList(RandomListNode *head);
 
 
 

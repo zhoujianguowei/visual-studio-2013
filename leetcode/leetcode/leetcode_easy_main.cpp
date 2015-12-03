@@ -1,20 +1,17 @@
 #include"leetcode.h"
 int main()
 {
-	ListNode *head1 = new ListNode(3);
-	head1->next = new ListNode(11);
-	head1->next->next = new ListNode(15);
-	ListNode *head2 = new ListNode(2);
-	head2->next = new ListNode(7);
-	ListNode *head3 = new ListNode(10);
-	head3->next = new ListNode(15);
-	head3->next->next = new ListNode(17);
-	head3->next->next->next = new ListNode(19);
+
+	ListNode *head2 = new ListNode(-1);
+	head2->next = new ListNode(5);
+	head2->next->next = new ListNode(11);
+	ListNode *head4 = new ListNode(6);
+	head4->next = new ListNode(10);
 	vector<ListNode *> lists;
-	lists.push_back(head1);
+	lists.push_back(NULL);
 	lists.push_back(head2);
 	lists.push_back(NULL);
-	lists.push_back(head3);
+	lists.push_back(head4);
 	mergeKLists(lists);
 	return 0;
 }

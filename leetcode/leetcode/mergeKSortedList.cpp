@@ -1,52 +1,127 @@
 #include"leetcode.h"
- ListNode *mergeTwoLists(ListNode *head1, ListNode *head2)
+
+/*
+the index is beginning at 0,
+and the heap is small,first heap_down, and then ,heap_up
+*/
+void adjustHeap(vector<ListNode*> &nodes, int adIndex)
 {
-	if (head1 == NULL)
-		return head2;
-	if (head2 == NULL)
-		return head1;
-	ListNode * resHead = (ListNode*)(malloc(sizeof(ListNode)));
-	ListNode *temp = resHead;
-	temp->next = NULL;
-	ListNode* temp1 = head1, *temp2 = head2;
-	while (temp1&&temp2)
+	int i = adIndex, j = 2 * i + 1;
+	int size = nodes.size();
+	while (j < size)
 	{
-		if (temp1->val < temp2->val)
+		if (j + 1 < size&&nodes[j]->val > nodes[j + 1]->val)
+			j = j + 1;
+		if (nodes[i]->val>nodes[j]->val)
 		{
-			temp->next = temp1;
-			temp1 = temp1->next;
+			ListNode *temp = nodes[i];
+			nodes[i] = nodes[j];
+			nodes[j] = nodes[i];
+			i = j;
+			j = 2 * i + 1;
 		}
 		else
-		{
-			temp->next = temp2;
-			temp2 = temp2->next;
-		}
-		temp = temp->next;
+			break;
 	}
-	if (temp1)
-		while (temp1)
+	if (adIndex == 0)
+		return;
+	i = adIndex;
+	j = (i - 1) / 2;
+	while (i > 0)
+	{
+		if (nodes[i]->val < nodes[j]->val)
 		{
-			temp->next = temp1;
-			temp1 = temp1->next;
-			temp = temp->next;
+			ListNode *temp = nodes[i];
+			nodes[i] = nodes[j];
+			nodes[j] = temp;
+			i = j;
+			j = (i - 1) / 2;
 		}
-	else if (temp2)
-		while (temp2)
+		else
+			break;
+	}
+
+}
+void init(vector<ListNode*>& lists, vector<ListNode*>& nodes)
+{
+	int i = 0;
+	int lackCount = 0;
+	for (; i < lists.size(); i++)
+	{
+		ListNode *head = lists[i];
+		if (head != NULL)
 		{
-			temp->next = temp2;
-			temp2 = temp2->next;
-			temp = temp->next;
+			nodes.push_back(head);
+			lists[i] = head->next;
 		}
-	return resHead->next;
+		else
+			lackCount++;
+
+	}
+	if (lackCount)
+	{
+		for (i = 0; i < lists.size(); i++)
+		{
+			ListNode *node = lists[i];
+			if (node != NULL)
+			{
+				while (node != NULL&&lackCount)
+				{
+					nodes.push_back(node);
+					lists[i] = node->next;
+					node = node->next;
+					lackCount--;
+				}
+
+			}
+			if (lackCount == 0)
+				break;
+		}
+
+	}
+
+
 }
 ListNode* mergeKLists(vector<ListNode*>& lists)
 {
-	//ListNode *mergeTwoLists(ListNode *head1, ListNode *head2);
-	ListNode *mergeTwoHead = NULL;
-	for (int i = 0; i < lists.size(); i++)
+	int lastListIndex = 0;
+	int i = 0;
+	vector<ListNode*> nodes;
+	ListNode *newHead = new ListNode(-1);
+	ListNode *p = newHead;
+	init(lists, nodes);
+	for (i = (nodes.size() - 1) / 2; i >= 0; i--)
 	{
-		mergeTwoHead = mergeTwoLists(mergeTwoHead, lists[i]);
+		adjustHeap(nodes, i);
 	}
-	return	mergeTwoHead;
+	if (nodes.size() == 0)
+		return newHead->next;
+	while (true)
+	{
+		ListNode *min = nodes[0];
+		p->next= min;
+		p = p->next;
+		if (min->next != NULL)
+		{
+			nodes[0] = min->next;
+			continue;
+		}
+		else
+			for (i = lastListIndex; i < lists.size(); i++)
+			{
+				ListNode *node = lists[i];
+				if (node != NULL)
+				{
+					nodes[0] = node;
+					lists[i] = node->next;
+					lastListIndex = i;
+					break;
+				}
+			}
+		adjustHeap(nodes, 0);
+		if (nodes.size() < lists.size())
+			break;
+	}
+
 
 }

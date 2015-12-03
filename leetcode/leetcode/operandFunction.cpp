@@ -643,7 +643,46 @@ int getDistinctPermutation(int n, int k)
 
 
 }
-
+ListNode *mergeTwoLists(ListNode *head1, ListNode *head2)
+{
+	if (head1 == NULL)
+		return head2;
+	if (head2 == NULL)
+		return head1;
+	ListNode * resHead = (ListNode*)(malloc(sizeof(ListNode)));
+	ListNode *temp = resHead;
+	temp->next = NULL;
+	ListNode* temp1 = head1, *temp2 = head2;
+	while (temp1&&temp2)
+	{
+		if (temp1->val < temp2->val)
+		{
+			temp->next = temp1;
+			temp1 = temp1->next;
+		}
+		else
+		{
+			temp->next = temp2;
+			temp2 = temp2->next;
+		}
+		temp = temp->next;
+	}
+	if (temp1)
+		while (temp1)
+		{
+			temp->next = temp1;
+			temp1 = temp1->next;
+			temp = temp->next;
+		}
+	else if (temp2)
+		while (temp2)
+		{
+			temp->next = temp2;
+			temp2 = temp2->next;
+			temp = temp->next;
+		}
+	return resHead->next;
+}
 
 
 

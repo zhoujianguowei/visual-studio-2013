@@ -502,6 +502,7 @@ struct RandomListNode
 	RandomListNode(int x) :label(x), next(NULL), random(NULL) {}
 };
 RandomListNode *copyRandomList(RandomListNode *head);
+ListNode *mergeTwoLists(ListNode *head1, ListNode *head2);
 
 
 

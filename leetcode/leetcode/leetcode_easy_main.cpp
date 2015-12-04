@@ -2,17 +2,8 @@
 int main()
 {
 
-	ListNode *head2 = new ListNode(-1);
-	head2->next = new ListNode(5);
-	head2->next->next = new ListNode(11);
-	ListNode *head4 = new ListNode(6);
-	head4->next = new ListNode(10);
-	vector<ListNode *> lists;
-	lists.push_back(NULL);
-	lists.push_back(head2);
-	lists.push_back(NULL);
-	lists.push_back(head4);
-	mergeKLists(lists);
+	cout << getHint("00112233445566778899",
+		"16872590340158679432");
 	return 0;
 }
 

@@ -10,53 +10,26 @@ using namespace std;
 const int N=30;
 double graph[N][N];
 bool *visited;
-double dfs(int v,int pre,int n,double rate)
-{
-	if (!visited[v])
-	{
-		return rate;
-	}
-	int i = 0;
-	double res = 0.0f;
-	for (; i < n; i++)
-	{
-		if (i != v&&visited[i])
-			continue;
-		if (graph[pre][i]>0)
-		{
-			rate *= graph[pre][i];
-			if (i != v)
-				visited[i] = true;
-			else
-				visited[i]=false;
-			res = dfs(v, i, n, rate);
-			if (res < 1)
-			{
-				visited[v] = true;
-				rate /= graph[pre][i];
-				continue;
-			}
-			else
-				return res;
-		}
-	}
-	return 0;
-}
+/*
+it's a wrong attemp,as in fact ,if a dfs path has visited a vertex ,it may be visted again
+*/
 string isBeneficial(int n)
 {
-	int i, j;
+	int i, j,k;
 	bool isValid = false;
+	for (k = 0; k < n; k++)
+		for (i = 0; i < n; i++)
+			for (j = 0; j < n; j++)
+			{
+				if (graph[i][j] < graph[i][k] * graph[k][j])
+					graph[i][j] = graph[i][k] * graph[k][j];
+			}
 	for (i = 0; i < n; i++)
-	{
-		visited= new bool[n];
-		memset(visited, false, n*sizeof(bool));
-		visited[i] = true;
-		if (dfs(i, i, n, 1.0)>1)
+		if (graph[i][i]>1)
 		{
 			isValid = true;
 			break;
 		}
-	}
 	if (isValid)
 		return "Yes";
 	else

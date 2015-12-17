@@ -29,7 +29,7 @@ double getMinTime(vector<int> wi, vector<int> si, int bridgeLoad, int bridgeLeng
 	}
 	return opt[veNum];
 }
-int main()
+int first_main()
 {
 	int bridgeLoad, bridgeLength, veNum;
 	while (1)

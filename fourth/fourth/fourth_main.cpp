@@ -5,55 +5,24 @@
 #include<iomanip>
 #include<vector>
 using namespace std;
-const float MAX_FLOAT = 888888888.0f;
-vector<int> getWeight_Speed(vector<int> wi, vector<int> si, int i, int j)
-{
-	vector<int> ws;
-	int weight = 0, minSpeed = si[i];
-	for (int k = i; k <= j; k++)
-	{
-		weight += wi[k];
-		minSpeed = minSpeed < si[k] ? minSpeed : si[k];
-
-	}
-	ws.push_back(weight);
-	ws.push_back(minSpeed);
-	return ws;
-}
-float getMinTime(vector<int> si, vector<int> wi, int bridgeLoad, int bridgeLength, int veNum)
+const double MAX_FLOAT = 888888888.0;
+double getMinTime(vector<int> wi, vector<int> si, int bridgeLoad, int bridgeLength, int veNum)
 {
 	int i, j;
-	float *opt = new float[veNum + 1];
+	double *opt = new double[veNum + 1];
 	opt[0] = 0;
-	vector< vector<float> > e;
 	for (i = 0; i < veNum; i++)
 	{
-		vector<float> iE;
-		for (j = 0; j < veNum; j++)
+		double minTime = MAX_FLOAT;
+		int minSpeed = si[i];
+		int sumW = 0;
+		for (j = i; j >= 0; j--)
 		{
-			vector<int> ws = getWeight_Speed(si, wi, i, j);
-			if (ws[0] > bridgeLoad)
-				while (j < veNum)
-				{
-					iE.push_back(MAX_FLOAT);
-					j++;
-				}
-			else
-			{
-				iE.push_back(60.0f*bridgeLength / ws[1]);
-			}
-		}
-		e.push_back(iE);
-	}
-	for (i = 0; i < veNum; i++)
-	{
-		float minTime = MAX_FLOAT;
-		for (j = i; j >=0; j--)
-		{
-			vector<float> ie = e[j];
-			float time = ie[i] + opt[j];
-			if (time >= MAX_FLOAT)
+			sumW += wi[j];
+			if (sumW > bridgeLoad)
 				break;
+			minSpeed = minSpeed < si[j] ? minSpeed : si[j];
+			double time = opt[j] + (double)(60.0*bridgeLength) /minSpeed;
 			minTime = minTime < time ? minTime : time;
 		}
 		opt[i + 1] = minTime;
@@ -62,8 +31,6 @@ float getMinTime(vector<int> si, vector<int> wi, int bridgeLoad, int bridgeLengt
 }
 int main()
 {
-	/*float c = 1.254;
-	cout << setiosflags(ios::fixed) << setprecision(1) << c << endl;*/
 	int bridgeLoad, bridgeLength, veNum;
 	while (1)
 	{
@@ -72,6 +39,8 @@ int main()
 			break;
 		vector<int> wi;
 		vector<int> si;
+		wi.reserve(veNum);
+		si.reserve(veNum);
 		for (int i = 0; i < veNum; i++)
 		{
 			int w, s;
@@ -79,6 +48,7 @@ int main()
 			wi.push_back(w);
 			si.push_back(s);
 		}
+		//printf("%.1f\n", getMinTime(wi, si, bridgeLoad, bridgeLength, veNum));
 		cout << setiosflags(ios::fixed) << setprecision(1) << getMinTime(wi, si, bridgeLoad, bridgeLength, veNum) << endl;
 
 	}

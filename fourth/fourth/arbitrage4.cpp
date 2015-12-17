@@ -35,7 +35,7 @@ string isBeneficial(int n)
 	else
 		return "No";
 }
-int main()
+int fourth_main()
 {
 	int n, m;
 	int testNum = 1;

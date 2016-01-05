@@ -48,7 +48,7 @@ int getMaxPairs(int graph[COWN][COWN], int n, int m)
 	}
 	return countPairs;
 }
-int main()
+int perfect_stall_main()
 {
 	int N, M;
 	int graph[COWN][COWN];
@@ -69,6 +69,7 @@ int main()
 			rowIndex++;
 		}
 		cout << getMaxPairs(graph, N, M) << endl;
-
+		
 	}
+	return 0;
 }

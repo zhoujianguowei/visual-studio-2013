@@ -33,7 +33,7 @@ int getMaxScore(string src, string des)
 	return matrix[src.length()][des.length()];
 }
 
-int main()
+int third_main()
 {
 	int n, i = 0;
 	char vertext[5] = { 'A', 'C', 'G', 'T', '-' };
@@ -50,10 +50,10 @@ int main()
 		matrix[0][0] = 0;
 		for (i = 1; i<=srcLen; i++)
 		{
-			matrix[i][0]+= score[omap.find(src.at(i-1))->second][omap.find('-')->second];
+			matrix[i][0]=matrix[i-1][0]+score[omap.find(src.at(i-1))->second][omap.find('-')->second];
 		}
 		for (i = 1; i <=desLen; i++)
-			matrix[0][i]+= score[omap.find('-')->second][omap.find(des.at(i-1))->second];
+			matrix[0][i]=matrix[0][i-1]+score[omap.find('-')->second][omap.find(des.at(i-1))->second];
 		cout << getMaxScore(src, des)<<endl;
 	}
 	return 0;

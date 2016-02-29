@@ -1,62 +1,43 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include"fond.h"
-void printArray(vector<int> nums)
-{
-	/*for (unsigned int i = 0; i < sums.size(); i++)
-		cout << setw(4) << sums[i];*/
-	vector<int>::iterator vecIte = nums.begin();
-	while (vecIte != nums.end())
-		cout << *vecIte++ << "\t";
-	cout << endl;
-}
-void printVec(vector<int> nums)
-{
-	for (int i = 0; i < nums.size(); i++)
-		cout << nums[i] << "\t";
-	cout << "\n";
-}
+#include <cstdio>
+#include<algorithm>
+#include <cstring>
+#include <iostream>
+#include <vector> 
+#define max(a,b) (a)>(b)?(a):(b)
+using namespace std;
 int main()
 {
-	/*int integerArray[] = { 5, 2, 7, 3, 4 };
-	getCutMax(integerArray, 5, 1);*/
-	//vector_man();
-	/*srand((unsigned)time(NULL));
-	vector<int> subSums;
-	for (int i = 0; i < 100; i++)
-	subSums.push_back(rand()%100 - 50);
-	cout << "initial:" << "\n";
-	printArray(subSums);
-	vector<int> maxSumsRes = maxSubSum(subSums, 0, subSums.size() - 1);
-	cout << "max sub sequence:" << endl;
-	printArray(maxSumsRes);
-	cout << "dp max sub sum:" << dpGetMaxSubSum(subSums);
-	*/
-	//graph_test();
-	//vector<int> vec;
-	//int i;
-	//for (i = 0; i < 5; i++)
-	//	vec.push_back(i + 1);
-	//printVec(vec);
-	//vector<int>::iterator vecIte = vec.begin();
-	//vecIte += 3;
-	//vec.insert(vecIte, 13);
-	//printVec(vec);
-	////cout << "pointer:" << *vecIte;
-	//vecIte++;
-	//vec.erase(vecIte);
-	//printVec(vec);
-	//vecIte = vec.end();
-	//cout << "pointer:" << *(--vecIte);
-	/*map<int, string> uMap;
-	uMap.insert(make_pair(3, "zhoujianguo"));
-	uMap.insert(make_pair(1, "wanyi"));
-	uMap.insert(make_pair(0, "yiwu"));
-	map<int, string>::iterator mapIte = uMap.begin();
-	cout << "id=" << mapIte->first << "  value:" << mapIte->second << endl;*/
-	vector<int> nums;
-	srand(time(NULL));
-	for (int i = 0; i <11; i++)
-		nums.push_back(rand()%100);
-	printArray(nums);
-	cout << getLongestArray(nums);
+	int f[100][100]; char s1[100]; char s2[100];
+	int i, j, x, y, n;
+
+
+	while (scanf("%d%s%d%s", &x, s1 + 1, &y, s2 + 1) > 0)
+	{
+	/*	memset(s1, 0, sizeof(s1));
+		memset(s2, 0, sizeof(s2));*/
+		memset(f, 0, sizeof(f));
+
+		for (i = 1; i <= x; i++)
+		{
+			for (j = 1; j <= y; j++)
+			{
+				f[i][j] = max(f[i - 1][j], f[i][j - 1]);
+				if (s1[i] == s2[j])
+				{
+
+					f[i][j] = max(f[i][j], 1 + f[i - 1][j - 1]);
+
+				}
+			}
+		}
+		int k = f[x][y];
+		printf("%d", k);
+
+	}
+	system("pause");
 	return 0;
+
 }
+

@@ -51,7 +51,7 @@ bool isValidSudoku(vector<vector<char>>& board)
 int main()
 {
 
-	vector<vector<char>> board;
+	/*vector<vector<char>> board;
 	for (int i = 0; i < 9; i++)
 	{
 			vector<char> vec;
@@ -61,7 +61,10 @@ int main()
 		}
 		board.push_back(vec);
 	}
-	cout<<isValidSudoku(board);
+	cout<<isValidSudoku(board);*/
+	letterCombinations("23");
+
+
 	return 0;
 }
 

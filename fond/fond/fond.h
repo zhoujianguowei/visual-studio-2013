@@ -26,3 +26,4 @@ void recall();
 */
 int dpGetMaxSubSum(vector<int> nums);
 void graph_test();
+void getMatrix(int n);

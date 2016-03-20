@@ -27,6 +27,12 @@ void swap(int&a, int &b)
 	a = b;
 	b = temp;
 }
+void printVec(vector<int> nums)
+{
+	for (int i = 0; i < nums.size(); i++)
+		cout << nums[i] << " ";
+	cout << "\n";
+}
 /*
 使用随机快排，保证数据时间复杂度是nlog（n）
 */

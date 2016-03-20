@@ -508,6 +508,7 @@ string getHint(string secret, string guess);
 17. Letter Combinations of a Phone Number
 **/
 vector<string> letterCombinations(string digits);
+void printVec(vector<int> nums);
 
 
 

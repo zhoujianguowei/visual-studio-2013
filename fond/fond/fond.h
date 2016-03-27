@@ -1,4 +1,5 @@
 #include<iostream>
+#include<stdlib.h>
 #include<iomanip>
 #include<math.h>
 #include<cstdio>
@@ -27,3 +28,7 @@ void recall();
 int dpGetMaxSubSum(vector<int> nums);
 void graph_test();
 void getMatrix(int n);
+void bigEndianPut(FILE *file);
+int transferBiCharToAsi(vector<int> biCharSet);
+vector<int> transferAsiToBiChar(int asi);
+void bigEndianGet(FILE *bFile);

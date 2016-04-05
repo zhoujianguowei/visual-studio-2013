@@ -30,10 +30,10 @@ vector<vector<int>> getTwoSum(vector<int> nums, int left, int right, int target)
 	}
 	return result;
 }
-vector<vector<int>> threeSum(vector<int>& nums)
+vector<vector<int>> threeSum(vector<int> &nums, int target)
 {
 	/*if (nums.size() < 3)
-		return null;*/
+	return null;*/
 	vector<vector<int>> result;
 
 	/*bool isOver = false;*/
@@ -41,55 +41,55 @@ vector<vector<int>> threeSum(vector<int>& nums)
 	if (nums.size() < 3)
 		return result;
 	quick_sort(nums, 0, nums.size() - 1);
-	
+
 	//sort(nums.begin(), nums.end()); 
 	/*for (i = 0; i < nums.size() - 2&&nums[i]<=0; i++)
-		for (j = i + 1; j < nums.size() - 1; j++)
-		{
-			int twoSum = nums[i] + nums[j];
-			if (twoSum > 0)
-			{
-				break;
+	for (j = i + 1; j < nums.size() - 1; j++)
+	{
+	int twoSum = nums[i] + nums[j];
+	if (twoSum > 0)
+	{
+	break;
 
-			}
-			for (k = j + 1; k < nums.size(); k++)
-			{
-				vector<int> temp;
-				int threeSum = nums[i] + nums[j] + nums[k];
-				if (threeSum == 0)
-				{
-					temp.push_back(nums[i]);
-					temp.push_back(nums[j]);
-					temp.push_back(nums[k]);
-					unsigned int m = 0;
-					for (; m < temp.size() && previousVector.size()>0; m++)
-						if (temp[m] != previousVector[m])
-							break;
-					if (m != temp.size())
-					{
-						result.push_back(temp);
-						previousVector = temp;
-					}
+	}
+	for (k = j + 1; k < nums.size(); k++)
+	{
+	vector<int> temp;
+	int threeSum = nums[i] + nums[j] + nums[k];
+	if (threeSum == 0)
+	{
+	temp.push_back(nums[i]);
+	temp.push_back(nums[j]);
+	temp.push_back(nums[k]);
+	unsigned int m = 0;
+	for (; m < temp.size() && previousVector.size()>0; m++)
+	if (temp[m] != previousVector[m])
+	break;
+	if (m != temp.size())
+	{
+	result.push_back(temp);
+	previousVector = temp;
+	}
 
-				}
-				else if (threeSum > 0)
-				{
-					break;
-				}
-				
-			}
-		}*/
+	}
+	else if (threeSum > 0)
+	{
+	break;
+	}
+
+	}
+	}*/
 
 	for (i = 0; i < nums.size() - 2; i++)
 	{
 		if (i > 0 && nums[i] == nums[i - 1])
 			continue;
-		vector<vector<int>> twoVector = getTwoSum(nums, i + 1, nums.size() - 1, 0 - nums[i]);
+		vector<vector<int>> twoVector = getTwoSum(nums, i + 1, nums.size() - 1,target - nums[i]);
 		if (!twoVector.empty())
 		{
 			for (j = 0; j < twoVector.size(); j++)
 			{
-				
+
 				vector<int > temp;
 				vector<int> subTwoVector = twoVector[j];
 				temp.push_back(nums[i]);
@@ -103,4 +103,9 @@ vector<vector<int>> threeSum(vector<int>& nums)
 
 	return result;
 
+}
+vector<vector<int>> threeSum(vector<int>& nums)
+{
+
+	return threeSum(nums, 0);
 }

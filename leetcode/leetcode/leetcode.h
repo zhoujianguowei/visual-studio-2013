@@ -509,6 +509,7 @@ string getHint(string secret, string guess);
 **/
 vector<string> letterCombinations(string digits);
 void printVec(vector<int> nums);
+vector<vector<int>> threeSum(vector<int> &nums, int target);
 
 
 

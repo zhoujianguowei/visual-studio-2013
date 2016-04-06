@@ -9,10 +9,11 @@
 using namespace std;
 int main()
 {
-	FILE *file = fopen("d:\\nice.txt", "rb");
-	//bigEndianPut(file);
-	bigEndianGet(fopen("d:\\binary.bin", "rb"));
-	transferAsiToBiChar(83);
+	//FILE *file = fopen("d:\\nice.txt", "rb");
+	////bigEndianPut(file);
+	//bigEndianGet(fopen("d:\\binary.bin", "rb"));
+	//transferAsiToBiChar(83);
+	recall();
 
 
 }

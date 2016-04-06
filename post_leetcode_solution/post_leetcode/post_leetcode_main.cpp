@@ -22,8 +22,6 @@ int main()
 	//cout << "sorted after:" << endl;
 	//quick_sort(nums);
 	//printVec(nums);
-	int nums[] = { 5, 5, 3, 5, 1, -5, 1, -2 };
-	vector<vector<int>> res = fourSum(getVec(nums, 8), 4);
-	printMatrix(res);
+	cout<<isValid("((");
 	return 0;
 }

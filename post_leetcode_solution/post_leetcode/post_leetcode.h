@@ -15,3 +15,13 @@ A solution set is:
 (-2,  0, 0, 2)
 */
 vector<vector<int>> fourSum(vector<int>& nums, int target);
+/**
+20. Valid Parentheses My Submissions QuestionEditorial Solution
+Total Accepted: 102420 Total Submissions: 351089 Difficulty: Easy
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
+
+Subscribe to see which companies asked this question
+*/
+bool isValid(string s);

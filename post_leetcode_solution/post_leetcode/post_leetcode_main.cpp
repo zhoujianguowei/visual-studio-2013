@@ -7,21 +7,10 @@ void printMatrix(vector<vector<int>> res)
 		printVec(res.at(i));
 
 }
+
 int main()
 {
-	//int sum = 0,j;
-	//for (j = 1; j < 101; j++)
-	//	sum += j;
-	////cout << "sum=" << sum << endl;
-	//vector<int> nums;
-	//srand(time(NULL));
-	//for (j = 0; j < 10; j++)
-	//	nums.push_back(rand() % 101);
-	//cout << "sorted before:" << endl;
-	//printVec(nums);
-	//cout << "sorted after:" << endl;
-	//quick_sort(nums);
-	//printVec(nums);
-	generateParenthesis(3);
+	int nodes[] = { 1, 2, 3, 4, 5 ,6,7,8,9,10,11};
+	reverseKGroup(getPointer(nodes, 11), 20);
 	return 0;
 }

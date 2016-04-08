@@ -25,3 +25,11 @@ The brackets must close in the correct order, "()" and "()[]{}" are all valid bu
 Subscribe to see which companies asked this question
 */
 bool isValid(string s);
+/**
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+For example, given n = 3, a solution set is:
+
+"((()))", "(()())", "(())()", "()(())", "()()()"k
+*/
+vector<string> generateParenthesis(int n);

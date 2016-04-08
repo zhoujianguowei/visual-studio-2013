@@ -22,6 +22,6 @@ int main()
 	//cout << "sorted after:" << endl;
 	//quick_sort(nums);
 	//printVec(nums);
-	cout<<isValid("((");
+	generateParenthesis(3);
 	return 0;
 }

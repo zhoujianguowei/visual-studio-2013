@@ -16,19 +16,13 @@ int binarySearch(vector<int> nums, int left, int right, int target)
 		else
 			return -1;
 	int middle = left + (right - left) / 2;
-	if (nums[left] > nums[right])
+	if (nums[left] >= nums[right])
 	{
-		if (nums[left] <= nums[middle])  //左边是有序的
-			if (nums[left] <= target&&nums[middle] >= target)
-				return binarySearch(nums, left, middle, target);
-			else
-				return binarySearch(nums, middle + 1, right, target);
-		else if (nums[middle] <= nums[right]) //右边是有序的
-			if (nums[middle + 1] <= target&&nums[right] >= target)
-				return binarySearch(nums, middle + 1, right, target);
-			else
-				return binarySearch(nums, left, middle, target);
-
+		int index = -1;
+		if ((index = binarySearch(nums, left, middle, target)) != -1)
+			return index;
+		else
+			return binarySearch(nums, middle + 1, right, target);
 	}
 	while (left <= right)
 	{
@@ -42,7 +36,10 @@ int binarySearch(vector<int> nums, int left, int right, int target)
 	}
 	return -1;
 }
-int search(vector<int>& nums, int target)
+bool search(vector<int>& nums, int target)
 {
-	return binarySearch(nums, 0, nums.size() - 1, target);
+	if (binarySearch(nums, 0, nums.size() - 1, target) == -1)
+		return false;
+	else
+		return true;
 }

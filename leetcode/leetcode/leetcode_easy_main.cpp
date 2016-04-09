@@ -1,13 +1,56 @@
 #include"leetcode.h"
 int main()
 {
-	string strArray[] = { "-1","0","3","-2","4","null","null","8" };
-	int i = 0;
-	vector<string> strVec;
-	for (; i <8; i++)
-		strVec.push_back(strArray[i]);
-	TreeNode * root = createTree(strVec);
-	cout << lowestCommonAncestor(root, root->right, root->left->left->left)->val;
+
+	/*vector<vector<char>> board;
+	for (int i = 0; i < 9; i++)
+	{
+	vector<char> vec;
+	for (int j = 0; j < 9; j++)
+	{
+	vec.push_back(j + '1');
+	}
+	board.push_back(vec);
+	}
+	cout<<isValidSudoku(board);*/
+	//letterCombinations("23");
+	//srand(time(NULL));
+	//vector<int> nums;
+	//for (int i = 0; i < 40; i++)
+	//	nums.push_back(rand() %51);
+	//cout << "origin list:" << endl;
+	//printVec(nums);
+	//simple_quick_sort(nums, 0, nums.size() - 1);
+	//cout << "sorted list:" << endl;
+	//printVec(nums);
+
+
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

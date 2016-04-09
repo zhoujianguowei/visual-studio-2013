@@ -1,4 +1,5 @@
 #include<iostream>
+#include<stdlib.h>
 #include<iomanip>
 #include<math.h>
 #include<cstdio>
@@ -6,10 +7,13 @@
 #include<cstdlib>
 #include<string>
 #include<stack>
+#include<map>
+#include<limits.h>
 using namespace std;
 #define ERROR -1
 void getCutMax(int*, int, int);
 void vector_man();
+int getLongestArray(vector<int> nums);
 /*
 求最大子数列的和，该算法复杂度为nlogn
 */
@@ -22,3 +26,9 @@ void recall();
 使用动态规划计算最大子数列
 */
 int dpGetMaxSubSum(vector<int> nums);
+void graph_test();
+void getMatrix(int n);
+void bigEndianPut(FILE *file);
+int transferBiCharToAsi(vector<int> biCharSet);
+vector<int> transferAsiToBiChar(int asi);
+void bigEndianGet(FILE *bFile);

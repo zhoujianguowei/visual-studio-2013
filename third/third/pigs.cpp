@@ -62,7 +62,7 @@ int getMaxFlow(int v, int graph[MAXN][MAXN], int s, int t)
 
 	return max_flow;
 }
-int main()
+int pigs_main()
 {
 	int M, N;  
 	int graph[MAXN][MAXN];

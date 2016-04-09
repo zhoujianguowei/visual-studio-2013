@@ -1,26 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include"fond.h"
-void printArray(vector<int> sums)
-{
-	for (unsigned int i = 0; i < sums.size(); i++)
-		cout << setw(4) << sums[i];
-	cout << endl;
-}
+#include <cstdio>
+#include<algorithm>
+#include <cstring>
+#include <iostream>
+#include <vector> 
+#define max(a,b) (a)>(b)?(a):(b)
+using namespace std;
 int main()
 {
-	/*int integerArray[] = { 5, 2, 7, 3, 4 };
-	getCutMax(integerArray, 5, 1);*/
-	//vector_man();
-	srand((unsigned)time(NULL));
-	vector<int> subSums;
-	for (int i = 0; i < 100; i++)
-		subSums.push_back(rand()%100 - 50);
-	cout << "initial:" << "\n";
-	printArray(subSums);
-	vector<int> maxSumsRes = maxSubSum(subSums, 0, subSums.size() - 1);
-	cout << "max sub sequence:" << endl;
-	printArray(maxSumsRes);
-	cout << "dp max sub sum:" << dpGetMaxSubSum(subSums);
+	//FILE *file = fopen("d:\\nice.txt", "rb");
+	////bigEndianPut(file);
+	//bigEndianGet(fopen("d:\\binary.bin", "rb"));
+	//transferAsiToBiChar(83);
+	recall();
 
 
-	return 0;
 }
+

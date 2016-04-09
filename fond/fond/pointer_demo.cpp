@@ -29,6 +29,9 @@ void rowPointer()
 		p++;
 		cout << endl;
 	}
+	
+
+
 
 }
 void recall()

@@ -1,52 +1,66 @@
 #include"leetcode.h"
- ListNode *mergeTwoLists(ListNode *head1, ListNode *head2)
+const int MAX_INT=2147483647;
+/*
+the index is beginning at 0,
+and the heap is small,first heap_down, and then ,heap_up
+*/
+void adjustHeap(vector<ListNode*> &nodes, int adIndex)
 {
-	if (head1 == NULL)
-		return head2;
-	if (head2 == NULL)
-		return head1;
-	ListNode * resHead = (ListNode*)(malloc(sizeof(ListNode)));
-	ListNode *temp = resHead;
-	temp->next = NULL;
-	ListNode* temp1 = head1, *temp2 = head2;
-	while (temp1&&temp2)
+	int i = adIndex, j = 2 * i + 1;
+	int size = nodes.size();
+	while (j < size)
 	{
-		if (temp1->val < temp2->val)
+		if (j + 1 < size&&nodes[j]->val > nodes[j + 1]->val)
+			j = j + 1;
+		if (nodes[i]->val>nodes[j]->val)
 		{
-			temp->next = temp1;
-			temp1 = temp1->next;
+			ListNode *temp = nodes[i];
+			nodes[i] = nodes[j];
+			nodes[j] = temp;
+			i = j;
+			j = 2 * i + 1;
 		}
 		else
-		{
-			temp->next = temp2;
-			temp2 = temp2->next;
-		}
-		temp = temp->next;
+			break;
 	}
-	if (temp1)
-		while (temp1)
-		{
-			temp->next = temp1;
-			temp1 = temp1->next;
-			temp = temp->next;
-		}
-	else if (temp2)
-		while (temp2)
-		{
-			temp->next = temp2;
-			temp2 = temp2->next;
-			temp = temp->next;
-		}
-	return resHead->next;
+}
+void init(vector<ListNode*> lists, vector<ListNode*>& nodes)
+{
+	int i = 0;
+	for (; i < lists.size(); i++)
+	{
+		ListNode *head = lists[i];
+		if (head == NULL)
+			head = new ListNode(MAX_INT);
+		nodes.push_back(head);
+	}
+
 }
 ListNode* mergeKLists(vector<ListNode*>& lists)
 {
-	//ListNode *mergeTwoLists(ListNode *head1, ListNode *head2);
-	ListNode *mergeTwoHead = NULL;
-	for (int i = 0; i < lists.size(); i++)
+	int lastListIndex = 0;
+	int i = 0;
+	vector<ListNode*> nodes;
+	ListNode *newHead = new ListNode(-1);
+	ListNode *p = newHead;
+	init(lists, nodes);
+	for (i = (nodes.size() - 1) / 2; i >= 0; i--)
 	{
-		mergeTwoHead = mergeTwoLists(mergeTwoHead, lists[i]);
+		adjustHeap(nodes, i);
 	}
-	return	mergeTwoHead;
+	if (nodes.size() == 0)
+		return newHead->next;
+	while (nodes[0]->val!=MAX_INT)
+	{
+		ListNode *min = nodes[0];
+		p->next= min;
+		p = p->next;
+		min = min->next;
+		if (min == NULL)
+			min = new ListNode(MAX_INT);
+		nodes[0] = min;
+		adjustHeap(nodes, 0);
+	}
 
+	return newHead->next;
 }

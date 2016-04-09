@@ -11,6 +11,7 @@
 #include<list>
 #include<time.h>
 #include<set>
+#include<unordered_set>
 #include<unordered_map>
 using namespace std;
 //template<class T> class DigitsOperand
@@ -441,7 +442,7 @@ Your algorithm should run in O(n) time and uses constant space
 */
 int firstMissingPositive(vector<int>& nums);
 int singleNumber(vector<int>& nums);
-int search(vector<int>& nums, int target);
+bool search(vector<int>& nums, int target);
 int nthUglyNumber(int n);
 int numSquares(int n);
 /*
@@ -493,6 +494,25 @@ int binarySearch(vector<int> nums, int left, int right, int target);
 int findMin(vector<int>& nums);
 void reverseWords(string &s);
 TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q);
+int longestConsecutive(vector<int>& nums);
+struct RandomListNode
+{
+	int label;
+	RandomListNode *next, *random;
+	RandomListNode(int x) :label(x), next(NULL), random(NULL) {}
+};
+RandomListNode *copyRandomList(RandomListNode *head);
+ListNode *mergeTwoLists(ListNode *head1, ListNode *head2);
+string getHint(string secret, string guess);
+/**
+17. Letter Combinations of a Phone Number
+**/
+vector<string> letterCombinations(string digits);
+void printVec(vector<int> nums);
+vector<vector<int>> threeSum(vector<int> &nums, int target);
+
+
+
 
 
 
